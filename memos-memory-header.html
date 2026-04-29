@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1280, height=720">
+  <title>ASCII Header</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { width: 1280px; height: 720px; display: flex; justify-content: center; align-items: center; background: #000; }
+    body {
+      width: 900px;
+      height: 383px;
+      background: #070d07;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #1a3a1a;
+    }
+    .scanlines {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.3) 2px,
+        rgba(0, 0, 0, 0.3) 4px
+      );
+      pointer-events: none;
+      z-index: 10;
+    }
+    .glow {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      box-shadow: 0 0 60px rgba(57, 255, 20, 0.15), inset 0 0 30px rgba(57, 255, 20, 0.05);
+      pointer-events: none;
+      z-index: 5;
+    }
+    .content {
+      font-family: 'VT323', 'Noto Sans SC', monospace;
+      color: #39ff14;
+      text-align: center;
+      z-index: 2;
+      text-shadow: 0 0 8px #39ff14, 0 0 16px rgba(57, 255, 20, 0.5);
+      animation: flicker 4s infinite;
+    }
+    .title {
+      font-size: 80px;
+      letter-spacing: 16px;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      font-size: 28px;
+      letter-spacing: 4px;
+      opacity: 0.85;
+      text-shadow: 0 0 6px #39ff14;
+    }
+    .separator {
+      width: 300px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #39ff14, transparent);
+      margin: 12px 0;
+    }
+    .bottom-text {
+      font-size: 18px;
+      letter-spacing: 3px;
+      opacity: 0.6;
+      text-shadow: 0 0 4px #39ff14;
+    }
+    .corner {
+      position: absolute;
+      font-size: 18px;
+      color: #39ff14;
+      opacity: 0.5;
+      font-family: 'VT323', monospace;
+    }
+    .corner.tl { top: 10px; left: 14px; }
+    .corner.tr { top: 10px; right: 14px; }
+    .corner.bl { bottom: 10px; left: 14px; }
+    .corner.br { bottom: 10px; right: 14px; }
+    @keyframes flicker {
+      0%, 95%, 100% { opacity: 1; }
+      96% { opacity: 0.85; }
+      97% { opacity: 1; }
+      98% { opacity: 0.9; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scanlines"></div>
+  <div class="glow"></div>
+  <div class="content">
+    <div class="title">记忆</div>
+    <div class="subtitle">AI 智能体记忆管理</div>
+    <div class="separator"></div>
+    <div class="bottom-text">分层记忆系统 · HIERARCHICAL MEMORY</div>
+  </div>
+  <div class="corner tl">┌─</div>
+  <div class="corner tr">─┐</div>
+  <div class="corner bl">└─</div>
+  <div class="corner br">─┘</div>
+</body>
+</html>
